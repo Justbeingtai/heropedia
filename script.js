@@ -49,4 +49,16 @@ searchButton.addEventListener("click", function() {
 
   fetching(query);
 
-});
+  var wiki= document.getElementById("search-box").value
+  var wikiWeb=  `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&exintro=&explaintext=&titles=${wiki}&origin=*`;
+  
+  
+  fetch(wikiWeb)
+   .then((reponse) =>{
+       return reponse.json();
+   })
+   .then((data) => {
+      console.log(data)
+   })})
+  
+
