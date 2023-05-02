@@ -116,3 +116,8 @@ function createDataSection(title, data) {
   return section;
 }
 
+const homeButton = document.getElementById("home-btn");
+homeButton.addEventListener("click", function () {
+  window.location.href = "http://127.0.0.1:5500/index.html";
+});
+

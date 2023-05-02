@@ -47,23 +47,23 @@ h1 {
 
 .card {
   background-color: white;
-  margin: 10px;
-  border-radius: 5px;
+  margin: auto;
+  border-radius: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
   width: 500px;
-  height: 500px;
-  overflow: hidden;
+  height: 990px;
+  overflow: auto;
 }
 
 .card img {
   width: 100%;
-  height: 200px;
+  height: 300px;
   object-fit: cover;
 }
 
 .card h2 {
   margin: 10px;
-  font-size: 24px;
+  font-size: 50px;
   text-align: center;
 }
 
@@ -71,3 +71,64 @@ h1 {
   margin: 10px;
   font-size: 16px;
 }
+
+#heroNameTitle {
+  margin-top: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+#wikiInfo {
+  background-color: #0072c6;
+  color: white;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+
+#resultsContainer {
+  background-color: #ed1d24;
+  color: white;
+  padding: 50px;
+  margin: 65px;
+  text-align: center;
+  border-radius: 5px;
+  object-fit: cover;
+}
+.columns {
+  margin: auto;
+
+}
+
+.data-section {
+  background-color: #d1b2b2;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+}
+  .data-section {
+    margin-bottom: 5px;
+    font-size: 14px;
+    
+  }
+
+  .home-btn {
+    display: block;
+    margin-left: auto;
+    margin-top: 20px;
+    color: white;
+    background-color: #212121;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    width: 100px;
+  }
+  
+  .home-btn:hover {
+    background-color: #4CAF50;
+    cursor: pointer;
+  }
+  
