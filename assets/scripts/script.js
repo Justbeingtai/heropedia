@@ -1,4 +1,27 @@
 const publicKey = "35fad408979368e76379f831cba43f4d";
+const MAX_HISTORY_SIZE = 5;
+
+let searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
+
+const historyContainer = document.getElementById("search-history");
+for (let i = searchHistory.length - 1; i >= 0; i--) {
+  const historyItem = document.createElement("li");
+  historyItem.textContent = searchHistory[i];
+  historyContainer.appendChild(historyItem);
+}
+
+function addSearchToHistory(query) {
+  // Add search query to history
+  searchHistory.unshift(query);
+  
+  // Limit history size to MAX_HISTORY_SIZE
+  if (searchHistory.length > MAX_HISTORY_SIZE) {
+    searchHistory.pop();
+  }
+
+  // Save updated history to local storage
+  localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+}
 
 function fetching(charId) {
   const privateKey = "5d96d5ad0d54441e8920c0c482bc142e3efd0013";
@@ -33,6 +56,14 @@ function fetching(charId) {
 
         resultsContainer.appendChild(card);
       });
+      addSearchToHistory(charId);
+
+      historyContainer.innerHTML = "";
+      for (let i = searchHistory.length - 1; i >= 0; i--) {
+        const historyItem = document.createElement("li");
+        historyItem.textContent = searchHistory[i];
+        historyContainer.appendChild(historyItem);
+      }
     })
     .catch((error) => console.log(error));
 }
@@ -54,20 +85,27 @@ searchButton.addEventListener("click", function () {
   var wikiWeb = `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&exintro=&explaintext=&titles=${wiki}&origin=*`;
 
   fetch(wikiWeb)
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      const pageID = Object.keys(data.query.pages)[0];
-      const infoWiki = data.query.pages[pageID].extract;
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    const pageID = Object.keys(data.query.pages)[0];
+    const infoWiki = data.query.pages[pageID].extract;
 
-      const heroName = document.getElementById("heroNameTitle");
-      heroName.innerHTML = searchInput.value.toUpperCase();
+    const heroName = document.getElementById("heroNameTitle");
+    heroName.innerHTML = searchInput.value.toUpperCase();
 
-      const wikiInfo = document.getElementById("wikiInfo");
-      wikiInfo.innerHTML = infoWiki;
-    })
-    .catch((error) => console.log(error));
+    const wikiInfo = document.getElementById("wikiInfo");
+    wikiInfo.innerHTML = infoWiki;
+  })
+  .catch((error) => console.log(error));
+});
+
+const clearButton = document.getElementById("clear-history-btn");
+clearButton.addEventListener("click", function() {
+  localStorage.removeItem("searchHistory");
+  searchHistory = [];
+  historyContainer.innerHTML = "";
 });
 
 function fetchSuperheroApiData(heroName, card) {
