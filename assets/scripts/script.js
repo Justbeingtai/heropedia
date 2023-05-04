@@ -64,6 +64,14 @@ function fetching(charId) {
         historyItem.textContent = searchHistory[i];
         historyContainer.appendChild(historyItem);
       }
+      const historyItems = document.querySelectorAll("#search-history li");
+      historyItems.forEach((historyItem) => {
+        historyItem.addEventListener("click", function () {
+          const query = this.textContent;
+          fetching(query);
+        });
+      });
+
     })
     .catch((error) => console.log(error));
 }
@@ -91,9 +99,6 @@ searchButton.addEventListener("click", function () {
   .then((data) => {
     const pageID = Object.keys(data.query.pages)[0];
     const infoWiki = data.query.pages[pageID].extract;
-
-    const heroName = document.getElementById("heroNameTitle");
-    heroName.innerHTML = searchInput.value.toUpperCase();
 
     const wikiInfo = document.getElementById("wikiInfo");
     wikiInfo.innerHTML = infoWiki;
