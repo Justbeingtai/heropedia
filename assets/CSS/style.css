@@ -1,6 +1,8 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+  background-image: url("/assets/images/MARVEL.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 header {
@@ -11,8 +13,28 @@ header {
 }
 
 h1 {
-  margin: 0;
-  font-size: 36px;
+  font-size: 64px;
+  text-align: center;
+  margin-top: 20px;
+  position: relative;
+}
+
+#heropedia-title {
+  font-size: 60px;
+  font-weight: bold;
+  color: #ed1d24;
+  text-align: center;
+  background-image: url("/assets/images/MARVEL.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  padding: 50px 0;
+}
+
+body {
+  background-image: url("/assets/images/MARVEL.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #search-container {
@@ -29,7 +51,9 @@ h1 {
   margin-right: 10px;
 }
 
-#search-btn, #home-btn, #clear-history-btn {
+#search-btn,
+#home-btn,
+#clear-history-btn {
   padding: 10px;
   background-color: #4CAF50;
   border: 2px solid white;
@@ -91,27 +115,37 @@ h1 {
 }
 
 #wikiInfo {
-  background-color: #0072c6;
+  background-color: hsl(0, 99%, 57%);
   color: white;
   padding: 10px;
   margin: 10px;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 15px;
+  margin-bottom: 50px;
 }
 
 
 #resultsContainer {
-  background-color: #ed1d24;
+  background-color: hsl(0, 99%, 57%);
   color: white;
-  padding: 50px;
-  margin: 65px;
+  padding: 10px;
+  margin: 10px;
   text-align: center;
-  border-radius: 5px;
-  object-fit: cover;
+  border-radius: 15px;
+  object-fit: auto;
+  margin-top: 12px;
+  margin-bottom: auto;
 }
+
 .columns {
   margin: auto;
 
+}
+
+.columns .column {
+  margin-top: -16px;
+  padding: 0px;
+  border-radius: 5px;
 }
 
 .data-section {
