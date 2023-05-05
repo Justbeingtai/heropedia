@@ -1,42 +1,66 @@
 <!DOCTYPE html>
 <html>
+<!-- Start of head section -->
 <head>
   <title>HEROPEDIA</title>
+  <!-- Link to the Bulma CSS framework -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- Link to the custom CSS file for this page -->
   <link rel="stylesheet" href="./assets/CSS/style.css">
 </head>
+<!-- End of head section -->
+<!-- Start of body section -->
 <body>
+  <!-- Start of header section -->
   <header>
     <h1>HEROPEDIA</h1>
   </header>
+  <!-- End of header section -->
   <main>
+    <!-- Container for the search box and buttons -->
     <div id="search-container">
+      <!-- Input field for the user to type in the search query -->
       <input type="text" id="search-box" placeholder="Search Superheroes...">
+      <!-- Button to trigger the search -->
       <button id="search-btn">Search</button>
+      <!-- Button to go back to the home page -->
       <button id="home-btn">Home</button>
+      <!-- Button to clear the search history -->
       <button id="clear-history-btn">Clear History</button>
     </div>
+    <!-- Container for the search history -->
     <div id="searchHistoryContainer">
       <h2>Search History</h2>
+      <!-- List to display the search history -->
       <ul id="search-history"></ul>
     </div>
+    <!-- Columns container to hold the search results and additional information -->
     <div class="columns">
       <div class="column">
+        <!-- Title for the search result -->
         <p id="heroNameTitle" class="bd-notification is-info"></p>
+        <!-- Container for the Wikipedia information -->
         <div class="columns is-mobile">
           <div class="column">
+            <!-- Paragraph to display the Wikipedia information -->
             <p id="wikiInfo" class="bd-notification is-info">Marvel Comics<a href="https://www.marvel.com/comics?&options%5Boffset%5D=0&totalcount=12"><img src="./assets/images/pexels-erik-mclean-7768663.jpg"></a></p>
+            <!-- Container to hold additional superhero data -->
+            <div id="superhero-data"></div>
           </div>
         </div>
       </div>
+      <!-- Container for the search results -->
       <div class="column">
         <p id="resultsContainer" class="bd-notification is-info">Shop Marvel<a href="https://www.shopdisney.com/marvel-content/?CMP=SYN-MARVELCOM:NAV_MORE"><img src="./assets/images/pexels-miggy-rivera-6141908.jpg"></a></p>
       </div>
-      
     </div>
+    
 
   </main>
+  <!-- Link to the JavaScript file for this page -->
   <script src="./assets/scripts/script.js"></script>
+  <!-- Link to the CryptoJS library for hashing -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </body>
+<!-- End of body section -->
 </html>
