@@ -87,6 +87,7 @@ function fetching(charId) {
           fetching(query);
         });
       });
+
     })
     .catch((error) => console.log(error));
 }
@@ -95,7 +96,7 @@ function fetching(charId) {
 function hashing(ts, publicKey, privateKey) {
   // Calculate the hash using the MD5 algorithm from the CryptoJS library
   const hash = CryptoJS.MD5(ts + privateKey + publicKey).toString();
-  // Return the calculated hash
+   // Return the calculated hash
   return hash;
 }
 
@@ -109,7 +110,7 @@ searchButton.addEventListener("click", function () {
   // Fetch data for the search query
   fetching(query);
 
-  // Get the Wikipedia search query from the search input field  
+  // Get the Wikipedia search query from the search input field
   var wiki = document.getElementById("search-box").value;
   // Construct the Wikipedia API URL with the search query
   var wikiWeb = `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&exintro=&explaintext=&titles=${wiki}&origin=*`;
@@ -124,10 +125,6 @@ searchButton.addEventListener("click", function () {
     const pageID = Object.keys(data.query.pages)[0];
     // Get the Wikipedia page extract
     const infoWiki = data.query.pages[pageID].extract;
-
-    // Update the hero name in the title section to be the search query in uppercase
-    const heroName = document.getElementById("heroNameTitle");
-    heroName.innerHTML = searchInput.value.toUpperCase();
 
     // Update the Wikipedia information in the results section
     const wikiInfo = document.getElementById("wikiInfo");
@@ -185,7 +182,7 @@ function createDataSection(title, data) {
   const section = document.createElement("section");
   section.classList.add("data-section");
 
-  // Create a heading element for the section with the given title
+   // Create a heading element for the section with the given title
   const heading = document.createElement("h3");
   heading.innerText = title;
   section.appendChild(heading);
